@@ -8,8 +8,8 @@
 <div class="main-component">
     <div class="side-nav">
         <br><br>
+        <div class="tab fa fa-file-text-o" (click)="dashboard()">&nbsp; Dashboard</div><br>
         <div class="tab fa fa-file-text-o" (click)="setBills()">&nbsp; Bills</div><br>
-        <div class="tab fa fa-inr" (click)="billPay()">&nbsp; Bill Payment</div><br>
         <div class="tab fa fa-history" (click)="transactionHistory()"> Transaction History</div>
         <div class="bottom">
             <br><br>
@@ -18,12 +18,8 @@
         </div>
     </div>
 
-    <div class="load-component" *ngIf="isBillPay == false && isBills == false && isTransactionHistory == false && isUserProfile == false && isFaq == false && isEnergy == false">
+    <div class="load-component" *ngIf="isBills == false && isTransactionHistory == false && isUserProfile == false && isFaq == false && isEnergy == false">
         My Dashboard
-    </div>
-
-    <div class="load-component" *ngIf="isBillPay == true">
-        <app-pay-bill></app-pay-bill>
     </div>
 
     <div class="load-component" *ngIf="isBills == true">

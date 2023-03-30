@@ -7,63 +7,56 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
-  isBillPay : boolean = false;
-  isBills : boolean = false;
-  isTransactionHistory : boolean = false;
-  isUserProfile : boolean = false;
-  isFaq : boolean = false;
-  isEnergy : boolean = false
+  isBills: boolean = false;
+  isTransactionHistory: boolean = false;
+  isUserProfile: boolean = false;
+  isFaq: boolean = false;
+  isEnergy: boolean = false
 
-  billPay(){
-    this.isBillPay = true;
-    this.isBills = false;
+  dashboard() {
+    this.isBills= false;
     this.isTransactionHistory = false;
     this.isUserProfile = false;
     this.isFaq = false;
-    this.isEnergy = false;
+    this.isEnergy = false
   }
 
-  setBills(){
+  setBills() {
     this.isBills = true;
-    this.isBillPay = false;
     this.isTransactionHistory = false;
     this.isUserProfile = false;
     this.isFaq = false;
     this.isEnergy = false;
   }
 
-  transactionHistory(){
+  transactionHistory() {
     this.isTransactionHistory = true;
-    this.isBillPay = false;
     this.isBills = false;
     this.isUserProfile = false;
     this.isFaq = false;
     this.isEnergy = false;
   }
 
-  displayUserProfile(){
+  displayUserProfile() {
     this.isUserProfile = true;
     this.isBills = false;
-    this.isBillPay = false;
     this.isTransactionHistory = false;
     this.isFaq = false;
     this.isEnergy = false;
   }
 
-  displayFaq(){
+  displayFaq() {
     this.isFaq = true;
     this.isUserProfile = false;
     this.isBills = false;
-    this.isBillPay = false;
     this.isTransactionHistory = false;
     this.isEnergy = false;
   }
 
-  displayEnergy(){
+  displayEnergy() {
     this.isEnergy = true;
     this.isUserProfile = false;
     this.isBills = false;
-    this.isBillPay = false;
     this.isTransactionHistory = false;
     this.isFaq = false;
   }

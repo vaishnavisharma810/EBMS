@@ -6,25 +6,25 @@
         <div class="container">
             <form>
                 <div class="bill-details">
-                    <span class="item-value" style="font-weight: 600;">Bill Number</span>
+                    <span class="item-value" style="font-weight: 600;">{{bill.bill_no}}</span>
                     <h3 class="title">Bill Details</h3>
                     <div class="item">
-                        <span class="item-value">CN0001</span>
+                        <span class="item-value">{{bill.consumer_no}}</span>
                         <p class="item-name">Consumer Number</p>
                     </div>
                     <div class="item">
-                        <span class="item-value">My name</span>
+                        <span class="item-value">{{consumer_name}}</span>
                         <p class="item-name">Consumer Name</p>
                     </div>
                     <div class="item">
-                        <span class="item-value">Date</span>
+                        <span class="item-value">{{date}}</span>
                         <p class="item-name">Date Of Payment</p>
                     </div>
                     <div class="item">
-                        <span class="item-value">200</span>
+                        <span class="item-value">{{bill.presentReading - bill.previousReading}}</span>
                         <p class="item-name">Total Reading</p>
                     </div>
-                    <div class="total">Total Amount to Pay<span class="item-value" style="font-weight: 600;">Rs 1000</span></div>
+                    <div class="total">Total Amount to Pay<span class="item-value" style="font-weight: 600;">Rs {{bill.amountToPay}}</span></div>
                 </div>
                 <div class="upi-details">
                     <div class="row">

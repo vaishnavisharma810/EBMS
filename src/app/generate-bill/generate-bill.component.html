@@ -3,14 +3,20 @@
 <br>
 
 <div class="container">
-    <table class="table table-hover table-bordered text-center">
-        <thead class="text-light">
-            <th>Consumer Number</th>
-            <th>Current Reading</th>
-        </thead>
-        <tbody>
-            <td>fd</td>
-            <td>sfdg</td>
-        </tbody>
-    </table>
+    <div class="row m-3">
+        <div class="col-md-12 py-3">
+            <label class="labels">Consumer Number</label>
+            <input type="text" class="form-control" [(ngModel)]="consumer_no">
+        </div>
+        <div class="col-md-12 py-1">
+            <label class="labels">Current Reading</label>
+            <input type="number" class="form-control" [(ngModel)]="current_reading">
+        </div>
+        <div class="col-md-12 py-1">
+            <td><button type="button" class="btn btn-info btn-block" (click)="generateBill()">Generate</button></td>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <p style="font-weight: bolder; color: rgba(2, 46, 62, 0.573);">{{status}}</p>
+    </div> -->
 </div>

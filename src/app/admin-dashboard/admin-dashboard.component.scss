@@ -1,0 +1,51 @@
+.top {
+    width: 100vw;
+    height: 50px;
+    background: #FCFCFC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    .user {
+        padding-left: 90%;
+        padding-top: 10px;
+    }
+
+    .user:hover {
+        cursor: pointer;
+    }
+}
+
+
+.main-component {
+    display: flex;
+    flex-direction: row;
+
+    .side-nav {
+        height: 91.7vh;
+        width: 13rem;
+        background: linear-gradient(173.87deg, #51C7F4 7.9%, rgba(6, 103, 179, 0) 141.41%);
+
+        .bottom {
+            margin-top: 100%;
+        }
+
+        .tab {
+            padding-left: 18px;
+            font-size: medium;
+            padding-top: 20px;
+        }
+
+        .tab:hover {
+            scale: 1.05;
+            cursor: pointer;
+            color: rgb(97, 95, 95);
+        }
+    }
+
+    .load-component {
+        background: rgba(217, 217, 217, 0.21);
+        border-radius: 20px;
+        height: 80vh;
+        width: 80vw;
+        margin: 30px;
+    }
+}

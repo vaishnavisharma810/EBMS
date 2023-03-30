@@ -1,0 +1,20 @@
+
+<div class="main">
+    <br>
+    <div *ngIf="showErrorMsg == true" class="error" style="font-weight: bold;">
+        *Empty Field
+    </div>
+    <label for="email">Username</label><br>
+    <input [(ngModel)]="_email" class="form-control" name="_email" type="name" />
+
+    <br>
+
+    <label for="password">Password</label><br>
+    <input [(ngModel)]="_password" class="form-control" name="_password" type="password" />
+
+    <br><br>
+
+    <button class="btn btn-info" (click)="checkSignIn()">
+        Sign In
+    </button>
+</div>

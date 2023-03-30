@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="top">
+    <div class="user" (click)="displayUserProfile()">ABC XYZ &nbsp;<span class="fa fa-user fa-xl"></span></div>
+</div>
+
+
+<div class="main-component">
+    <div class="side-nav">
+        <br><br>
+        <div class="tab fa fa-users" (click)="addNewConsumer()">&nbsp; Add Consumer</div><br>
+        <div class="tab fa fa-file-text-o" (click)="generateBill()">&nbsp; Generate Bills</div><br>
+    </div>
+
+    <div class="load-component" *ngIf="isBillGen == false && isUserProfile == false && isAddNewConsumer == false">
+        Admin Dashboard
+    </div>
+
+    <div class="load-component" *ngIf="isBillGen == true">
+        <app-generate-bill></app-generate-bill>
+    </div>
+
+    <div class="load-component" *ngIf="isAddNewConsumer == true">
+        <app-create-new-user></app-create-new-user>
+    </div>
+
+    <div class="load-component" *ngIf="isUserProfile == true">
+        <app-user-profile></app-user-profile>
+    </div>
+
+</div>

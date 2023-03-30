@@ -1,0 +1,21 @@
+.main {
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .error{
+        color: rgb(43, 167, 212);
+    }
+
+    .btn {
+        border-radius: 10px;
+        font-family: 'Outfit';
+        font-style: normal;
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .btn:hover{
+        scale: 1.03;
+    }
+}

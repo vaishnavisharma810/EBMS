@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+
+.main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+
+    .image-section {
+        width: 40%;
+        height: 100%;
+    }
+
+    .signin-section {
+        margin-left: 6%;
+        margin-right: 4%;
+        padding: 20px;
+        justify-content: center;
+
+        .btn {
+            border-radius: 0px;
+            width: 100px;
+            padding: 10px;
+            font-weight: 100;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: #4ab9e5;
+        }
+    }
+}

@@ -12,10 +12,13 @@
         <th>Amount Paid</th>
     </thead>
     <tbody>
-        <td>fd</td>
-        <td>sfdg</td>
-        <td>fd</td>
-        <td>sfdg</td>
+        <tr *ngFor="let transaction of transactionHistory">
+            <td>{{transaction.transactionNo}}</td>
+            <td>{{transaction.billNo}}</td>
+            <td>{{transaction.meterReading}}</td>
+            <td>{{transaction.transactionDate}}</td>
+            <td>{{transaction.amountPaid}}</td>
+        </tr>
     </tbody>
 </table>
 </div>

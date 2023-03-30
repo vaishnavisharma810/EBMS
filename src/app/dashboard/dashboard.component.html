@@ -23,11 +23,11 @@
     </div>
 
     <div class="load-component" *ngIf="isBills == true">
-        <app-bills></app-bills>
+        <app-bills [consumer]="consumer"></app-bills>
     </div>
 
     <div class="load-component" *ngIf="isTransactionHistory == true">
-        <app-transaction-history></app-transaction-history>
+        <app-transaction-history [consumer]="consumer"></app-transaction-history>
     </div>
 
     <div class="load-component" *ngIf="isUserProfile == true">

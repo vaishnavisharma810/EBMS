@@ -13,7 +13,7 @@
                         <p class="item-name">Consumer Number</p>
                     </div>
                     <div class="item">
-                        <span class="item-value">{{consumer_name}}</span>
+                        <span class="item-value">{{consumer.consumer_name}}</span>
                         <p class="item-name">Consumer Name</p>
                     </div>
                     <div class="item">
@@ -33,7 +33,7 @@
                             <input id="upi" type="email" class="form-control">
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn btn-info btn-block">Pay</button>
+                            <button type="button" class="btn btn-info btn-block" (click)="createTransaction()">Pay</button>
                         </div>
                     </div>
                 </div>

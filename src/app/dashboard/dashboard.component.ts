@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Consumers } from '../Consumers';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  consumer: Consumers = {
+    consumer_name: "Vishnu",
+    consumer_no: 252
+  };
+
   isBills: boolean = false;
   isTransactionHistory: boolean = false;
   isUserProfile: boolean = false;
@@ -14,7 +20,7 @@ export class DashboardComponent {
   isEnergy: boolean = false
 
   dashboard() {
-    this.isBills= false;
+    this.isBills = false;
     this.isTransactionHistory = false;
     this.isUserProfile = false;
     this.isFaq = false;

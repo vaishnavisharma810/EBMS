@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Bills } from '../Bills';
+import { Consumers } from '../Consumers';
 import { RestService } from '../services/rest.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class BillsComponent {
   bills: Bills[] = [];
   bill! : Bills;
   @Input()
-  consumer_name! : string;
+  consumer! : Consumers;
   constructor(private restService: RestService) { }
 
   ngOnInit() {
@@ -26,7 +27,7 @@ export class BillsComponent {
   
   // bills
   getBills() {
-    this.restService.getBills(252).subscribe({
+    this.restService.getBills(this.consumer.consumer_no).subscribe({
       next: (data: Bills[]) => { this.bills = data },
       error: (err) => console.log(err)
     })

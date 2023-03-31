@@ -1,3 +1,7 @@
+<div class="load-component" *ngIf="isBillPay == true">
+    <app-pay-bill [bill]="bill" [consumer]="consumer"></app-pay-bill>
+</div>
+
 <br>
 <h2 style="font-weight: bolder; color: rgb(43, 167, 212);">My Bills</h2>
 <br>
@@ -10,15 +14,20 @@
             <th>Current Reading</th>
             <th>Previous Reading</th>
             <th>Amount</th>
-            <th>Status</th>
+            <th>Pay</th>
         </thead>
         <tbody>
-            <td>fd</td>
-            <td>sfdg</td>
-            <td>fd</td>
-            <td>sfdg</td>
-            <td></td>
-            <td></td>
+            <tr *ngFor="let bill of bills">
+                <td>{{bill.bill_no}}</td>
+                <td>{{bill.previousBillDate}}</td>
+                <td>{{bill.presentReading}}</td>
+                <td>{{bill.previousReading}}</td>
+                <td>{{bill.amountToPay}}</td>
+                <td [ngSwitch]="paidBills.includes(bill.bill_no)">
+                    <span *ngSwitchCase="true">Bill Paid</span>
+                    <button *ngSwitchDefault type="button" class="btn btn-info btn-block" (click)="billPay(bill)">Pay Bill</button>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>

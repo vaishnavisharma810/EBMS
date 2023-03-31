@@ -17,6 +17,7 @@ import { EnergySavingTipsComponent } from './energy-saving-tips/energy-saving-ti
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CreateNewUserComponent } from './create-new-user/create-new-user.component';
 import { BillsComponent } from './bills/bills.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { BillsComponent } from './bills/bills.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

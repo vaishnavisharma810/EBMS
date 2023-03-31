@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Consumers } from '../Consumers';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +8,15 @@ import { Consumers } from '../Consumers';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-
   consumer: Consumers = {
     consumer_name: "Vishnu",
     consumer_no: 352
   };
+  constructor(private router: Router) { }
+
+  logout(){
+    this.router.navigate(['/BaseLogin']);
+  }
 
   isBills: boolean = false;
   isTransactionHistory: boolean = false;

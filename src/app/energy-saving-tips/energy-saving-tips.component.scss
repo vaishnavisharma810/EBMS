@@ -6,10 +6,6 @@ h2 {
     text-align: center;
     font-weight: bolder;
 }
-
-.color-text{
-    color:rgb(47,104,104);
-  }
   
   .card{
     padding: 0;
@@ -17,14 +13,17 @@ h2 {
   
   .card img {
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     object-fit: cover;
     display: block;
     position: relative;
   }
+
+  .card-body{
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(43, 167, 212);
+  }
   
   .card :hover{
     cursor: pointer;
-    box-shadow: 0 70px 70px rgba(0, 0, 0, .12), 0 70px 70px rgba(0, 0, 0, .06);
-    transform: scale(1.1);
   }

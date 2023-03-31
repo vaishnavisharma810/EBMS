@@ -39,7 +39,7 @@ export class AdminLoginComponent {
     else {
       const isValidUser = this.signUpUsers.find(u => u.email == this._email && u.password == this._password);
       if (isValidUser != undefined) {
-        this.router.navigate(['/Dashboard']);
+        this.router.navigate(['/AdminDashboard']);
       }
       else {
         alert("INVALID DETAILS! TRY AGAIN!");

@@ -35,4 +35,9 @@ export class RestService {
   getTransactionHistory(consumer_no : number) : Observable<any> {
     return this.http.get(this.transactionsUrl+"/get-transactions/"+consumer_no);
   }
+
+  //get bill no of paid bills
+  getPaidBillsList(consumer_no : number) : Observable<any> {
+    return this.http.get(this.transactionsUrl+"/get-paid-bills/"+consumer_no);
+  }
 }

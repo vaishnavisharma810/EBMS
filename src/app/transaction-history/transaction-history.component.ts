@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Consumers } from '../Consumers';
 import { RestService } from '../services/rest.service';
 import { Transactions } from '../Transactions';
@@ -11,6 +11,7 @@ import { Transactions } from '../Transactions';
 export class TransactionHistoryComponent {
 
   constructor(private restService : RestService){}
+  @Input()
   consumer! : Consumers;
   transactionHistory : Transactions[] = [];
 
@@ -20,7 +21,7 @@ export class TransactionHistoryComponent {
 
   // show all previous transactions
   getTransactions(){
-    this.restService.getTransactionHistory(252).subscribe({
+    this.restService.getTransactionHistory(this.consumer.consumer_no).subscribe({
       next: (data: Transactions[]) => { this.transactionHistory = data; console.log(data) },
       error: (err) => console.log(err)
     })

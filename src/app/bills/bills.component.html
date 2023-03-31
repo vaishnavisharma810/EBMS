@@ -23,8 +23,16 @@
                 <td>{{bill.presentReading}}</td>
                 <td>{{bill.previousReading}}</td>
                 <td>{{bill.amountToPay}}</td>
-                <td><button type="button" class="btn btn-info btn-block" (click)="billPay(bill)">Pay Bill</button></td>
+                <ng-container *ngIf="paidBills.includes(bill.bill_no) then paid; else notPaid"></ng-container>
             </tr>
         </tbody>
     </table>
 </div>
+
+<ng-template #notPaid>
+    <td><button type="button" class="btn btn-info btn-block" (click)="billPay(bill)">Pay Bill</button></td>
+</ng-template>
+
+<ng-template #paid>
+    <td>Bill Paid</td>
+</ng-template>

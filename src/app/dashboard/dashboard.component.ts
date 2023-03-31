@@ -10,7 +10,7 @@ export class DashboardComponent {
 
   consumer: Consumers = {
     consumer_name: "Vishnu",
-    consumer_no: 252
+    consumer_no: 352
   };
 
   isBills: boolean = false;

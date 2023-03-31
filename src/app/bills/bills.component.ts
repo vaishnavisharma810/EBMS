@@ -13,10 +13,13 @@ export class BillsComponent {
   bill! : Bills;
   @Input()
   consumer! : Consumers;
+
+  paidBills : number[] = [];
   constructor(private restService: RestService) { }
 
   ngOnInit() {
     this.getBills();
+    this.getPaidBillsList();
   }
 
   isBillPay : boolean = false;
@@ -29,6 +32,14 @@ export class BillsComponent {
   getBills() {
     this.restService.getBills(this.consumer.consumer_no).subscribe({
       next: (data: Bills[]) => { this.bills = data },
+      error: (err) => console.log(err)
+    })
+  }
+
+  // get bill no of paid bills 
+  getPaidBillsList(){
+    this.restService.getPaidBillsList(this.consumer.consumer_no).subscribe({
+      next: (data: number[]) => { this.paidBills = data; console.log(this.paidBills) },
       error: (err) => console.log(err)
     })
   }

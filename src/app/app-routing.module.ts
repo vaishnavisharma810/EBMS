@@ -26,7 +26,8 @@ const routes: Routes = [
   {path: "Faq", component: FAQComponent},
   {path: "Energy", component: EnergySavingTipsComponent},
   {path: "AdminDashboard", component: AdminDashboardComponent},
-  {path: "CreateNewConsumer", component: CreateNewUserComponent}
+  {path: "CreateNewConsumer", component: CreateNewUserComponent},
+  {path: "BaseLogin", component: BaseComponent}
 ];
 
 @NgModule({

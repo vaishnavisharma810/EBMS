@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,13 @@ export class DashboardComponent {
   isTransactionHistory : boolean = false;
   isUserProfile : boolean = false;
   isFaq : boolean = false;
-  isEnergy : boolean = false
+  isEnergy : boolean = false;
+
+  constructor(private router: Router) { }
+
+  logout(){
+    this.router.navigate(['/BaseLogin']);
+  }
 
   billPay(){
     this.isBillPay = true;

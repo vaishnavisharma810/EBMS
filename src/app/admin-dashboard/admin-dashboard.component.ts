@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,6 +11,12 @@ export class AdminDashboardComponent {
   isBillGen: boolean = false;
   isUserProfile: boolean = false;
   isAddNewConsumer: boolean = false;
+
+  constructor(private router: Router) { }
+
+  logout(){
+    this.router.navigate(['/BaseLogin']);
+  }
 
   generateBill() {
     this.isBillGen = true;

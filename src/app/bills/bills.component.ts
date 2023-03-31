@@ -26,6 +26,7 @@ export class BillsComponent {
   billPay(bill : Bills){
     this.isBillPay = true;
     this.bill = bill;
+    console.log(bill);
   }
   
   // bills

@@ -16,23 +16,18 @@
             <th>Amount</th>
             <th>Pay</th>
         </thead>
-        <tbody >
+        <tbody>
             <tr *ngFor="let bill of bills">
                 <td>{{bill.bill_no}}</td>
                 <td>{{bill.previousBillDate}}</td>
                 <td>{{bill.presentReading}}</td>
                 <td>{{bill.previousReading}}</td>
                 <td>{{bill.amountToPay}}</td>
-                <ng-container *ngIf="paidBills.includes(bill.bill_no) then paid; else notPaid"></ng-container>
+                <td [ngSwitch]="paidBills.includes(bill.bill_no)">
+                    <span *ngSwitchCase="true">Bill Paid</span>
+                    <button *ngSwitchDefault type="button" class="btn btn-info btn-block" (click)="billPay(bill)">Pay Bill</button>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
-
-<ng-template #notPaid>
-    <td><button type="button" class="btn btn-info btn-block" (click)="billPay(bill)">Pay Bill</button></td>
-</ng-template>
-
-<ng-template #paid>
-    <td>Bill Paid</td>
-</ng-template>

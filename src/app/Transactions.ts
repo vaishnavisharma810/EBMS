@@ -1,5 +1,5 @@
 export class Transactions{
-        transactionNo!  : number;
+        transaction_no!  : number;
         billNo! : number;
         consumerNo! : number;
         meterReading! : number;

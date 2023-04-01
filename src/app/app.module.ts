@@ -18,6 +18,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { CreateNewUserComponent } from './create-new-user/create-new-user.component';
 import { BillsComponent } from './bills/bills.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ConsumerMainDashboardComponent } from './consumer-main-dashboard/consumer-main-dashboard.component';
+import { AdminMainDashboardComponent } from './admin-main-dashboard/admin-main-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     EnergySavingTipsComponent,
     AdminDashboardComponent,
     CreateNewUserComponent,
-    BillsComponent
+    BillsComponent,
+    ConsumerMainDashboardComponent,
+    AdminMainDashboardComponent
   ],
   imports: [
     BrowserModule,

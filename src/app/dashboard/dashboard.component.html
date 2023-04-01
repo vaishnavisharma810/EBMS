@@ -1,15 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="top">
-    <div><button class="logout btn fa fa-sign-out" (click)="logout()">&nbsp;Logout</button></div>
-    <div class="user" (click)="displayUserProfile()">ABC XYZ &nbsp;<span class="fa fa-user fa-xl"></span></div>
+    <div class="user fa fa-user fa-xl" (click)="displayUserProfile()"></div>
+    <div><button class="logout btn fa fa-sign-out" (click)="logout()"></button></div>
 </div>
 
 
 <div class="main-component">
     <div class="side-nav">
         <br><br>
-        <div class="tab fa fa-file-text-o" (click)="dashboard()">&nbsp; Dashboard</div><br>
+        <div class="tab fa fa-columns" (click)="dashboard()">&nbsp; Dashboard</div><br>
         <div class="tab fa fa-file-text-o" (click)="setBills()">&nbsp; Bills</div><br>
         <div class="tab fa fa-history" (click)="transactionHistory()"> Transaction History</div>
         <div class="bottom">
@@ -20,7 +20,7 @@
     </div>
 
     <div class="load-component" *ngIf="isBills == false && isTransactionHistory == false && isUserProfile == false && isFaq == false && isEnergy == false">
-        My Dashboard
+        <app-consumer-main-dashboard></app-consumer-main-dashboard>
     </div>
 
     <div class="load-component" *ngIf="isBills == true">
@@ -29,10 +29,6 @@
 
     <div class="load-component" *ngIf="isTransactionHistory == true">
         <app-transaction-history [consumer]="consumer"></app-transaction-history>
-    </div>
-
-    <div class="load-component" *ngIf="isUserProfile == true">
-        <app-user-profile></app-user-profile>
     </div>
 
     <div class="load-component" *ngIf="isFaq == true">

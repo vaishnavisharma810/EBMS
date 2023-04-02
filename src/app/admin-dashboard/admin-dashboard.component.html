@@ -11,6 +11,7 @@
 <div class="main-component">
     <div class="side-nav">
         <br><br>
+        <div class="tab fa fa-columns" (click)="dashboard()">&nbsp; Dashboard</div><br>
         <div class="tab fa fa-users" (click)="addNewConsumer()">&nbsp; Add Consumer</div><br>
         <div class="tab fa fa-file-text-o" (click)="generateBill()">&nbsp; Generate Bills</div><br>
     </div>
@@ -28,7 +29,7 @@
     </div>
 
     <div class="load-component" *ngIf="isUserProfile == true">
-        <app-user-profile></app-user-profile>
+        <app-admin-profile></app-admin-profile>
     </div>
 
 </div>

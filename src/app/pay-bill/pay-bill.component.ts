@@ -22,6 +22,8 @@ export class PayBillComponent {
 
   showTransaction : boolean = false;
   
+  //creating a transaction
+
   createTransaction(){
     this.restService.createTransaction({
       billNo : this.bill.bill_no,

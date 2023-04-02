@@ -8,11 +8,19 @@ import { Router } from '@angular/router';
 })
 export class AdminDashboardComponent {
 
+  //check variables
   isBillGen: boolean = false;
   isUserProfile: boolean = false;
   isAddNewConsumer: boolean = false;
 
   constructor(private router: Router) { }
+
+  //basic check function
+  dashboard() {
+    this.isUserProfile = false;
+    this.isBillGen = false;
+    this.isAddNewConsumer = false;
+  }
 
   logout(){
     this.router.navigate(['/BaseLogin']);

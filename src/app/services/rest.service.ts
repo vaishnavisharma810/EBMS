@@ -1,16 +1,46 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpResponse } from '@angular/common/http'
 import { Bills } from '../Bills';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RestService {
 
-  billsUrl : string = "http://localhost:9001/api/ebm/bills"
-  transactionsUrl : string = "http://localhost:9001/api/ebm/transactions"
+//Rest Service Class for all services
+
+export class RestService {
+  headers = { 'content-type': 'application/json' };
+  billsUrl : string = `${environment.baseUrl}${environment.billsPath}/bills`;
+  transactionsUrl : string = `${environment.baseUrl}${environment.billsPath}/transactions`;
   constructor(private http : HttpClient) { }
+
+
+  createConsumer(consumer : any) : Observable<any> {
+    const headers = { 'content-type': 'application/json' };
+    const url : string = `${environment.baseUrl}${environment.authPath}/consumer/register`;
+
+    return this.http.post(
+      url,
+      JSON.stringify(consumer),
+      {observe: 'response', headers: this.headers}
+    );
+  }
+
+  // consumer login
+  consumerLogin(email : string, password : string) : Observable<HttpResponse<Object>> {
+    const url : string = `${environment.baseUrl}${environment.authPath}/consumer/login`;
+    const body = {
+      "email": email,
+      "password": password
+    }
+    return this.http.post(
+      url,
+      JSON.stringify(body),
+      {observe: 'response', headers: this.headers}
+    );
+  } 
 
   // get bills for consumer
   getBills(consumer_no : number) : Observable<any> {

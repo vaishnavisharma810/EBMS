@@ -20,6 +20,7 @@ import { BillsComponent } from './bills/bills.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConsumerMainDashboardComponent } from './consumer-main-dashboard/consumer-main-dashboard.component';
 import { AdminMainDashboardComponent } from './admin-main-dashboard/admin-main-dashboard.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AdminMainDashboardComponent } from './admin-main-dashboard/admin-main-d
     CreateNewUserComponent,
     BillsComponent,
     ConsumerMainDashboardComponent,
-    AdminMainDashboardComponent
+    AdminMainDashboardComponent,
+    AdminProfileComponent
   ],
   imports: [
     BrowserModule,

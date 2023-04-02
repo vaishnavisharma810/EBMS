@@ -1,0 +1,22 @@
+.form-control:focus {
+    box-shadow: none;
+    border-color: rgb(43, 167, 212);
+}
+
+.profile-button {
+    background: rgb(43, 167, 212);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: rgb(79, 196, 246)
+}
+
+.labels {
+    font-size: 11px
+}
+
+.connection{
+    padding-left: 5%;
+}

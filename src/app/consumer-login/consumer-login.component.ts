@@ -1,5 +1,14 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
+import { User } from '../User';
 import { Router } from '@angular/router';
+import {
+  FieldValidatorsService,
+  ValidatorResult,
+} from '../services/field-validators.service';
+import { RestService } from '../services/rest.service';
+import { HttpResponse } from '@angular/common/http';
+
+
 @Component({
   selector: 'app-consumer-login',
   templateUrl: './consumer-login.component.html',
@@ -7,44 +16,60 @@ import { Router } from '@angular/router';
 })
 export class ConsumerLoginComponent {
 
-  signUpUsers: any[] = [
-    { email: "admin", password: "admin" }
-  ];
+  constructor(
+    private router: Router,
+    private restService : RestService
+  ) { }
 
-  loginObj: any = {
-    email: '',
-    password: ''
-  };
+  @Input()
+  user! : User;
 
-  constructor(private router: Router) { }
+  email: string = "";
+  password: string = "";
 
-  ngOnInit(): void {
-    const localData = localStorage.getItem('signUpUsers');
-    if (localData != null) {
-      this.signUpUsers = JSON.parse(localData);
-    }
-  }
-
-  _email: string = "";
-  _password: string = "";
   showErrorMsg: boolean = false;
+  errorMsg: string = '';
 
-  //Function to validate log in details
   checkSignIn() {
+    this.errorMsg = '';
+    this.showErrorMsg = false;
 
-    if (this._email.length == 0 || this._password.length == 0) {
+    //Checking for empty fields
+    if (this.email.length == 0 || this.password.length == 0) {
       this.showErrorMsg = true;
     }
 
-    else {
-      const isValidUser = this.signUpUsers.find(u => u.email == this._email && u.password == this._password);
-      if (isValidUser != undefined) {
-        this.router.navigate(['/Dashboard']);
-      }
-      else {
-        alert("INVALID DETAILS! TRY AGAIN!");
-      }
+    const result: ValidatorResult = FieldValidatorsService.isSignInFormValid(
+      this.email
+    );
+
+    //If email is validated
+    if (result.isValid) {
+      
+      console.log(this.email);
+      console.log(this.password);
+      this.restService.consumerLogin(this.email, this.password).subscribe({
+        next: (response : HttpResponse<Object>) => {
+          
+          localStorage.setItem('userDetails', JSON.stringify(response.body));
+
+          this.router.navigate(['/Dashboard']);
+        },
+        //If there  is an error
+        error: (response : HttpResponse<String>) => {
+          if(response.status === 401) {
+            alert("WRONG PASSWORD!! TRY AGAIN");
+          } 
+          else if(response.status === 404) {
+            alert("EMAIL NOT FOUND");
+          } 
+          else {
+            alert("CAN'T RECOGNISE YOU!! ENTER YOUR DETAILS AGAIN!")
+          }
+        },
+      });
+    } else {
+      alert("INVALID EMAIL!!");
     }
   }
-
 }

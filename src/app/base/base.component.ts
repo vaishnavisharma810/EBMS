@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class BaseComponent {
 
+  //to check if the user is consumer or admin
   consumerSignin : boolean = true;
 }

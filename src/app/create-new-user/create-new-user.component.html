@@ -8,27 +8,27 @@
 
   <div class="firstBox">
     <label for="name">Name: *</label>
-    <input type="text" name="name"  class="form-control" required>
+    <input [(ngModel)]="consumer.fullName" type="text" name="name"  class="form-control" required>
 
     <label for="mobile">Contact Number: *</label>
-    <input type="mobile" name="num"  class="form-control">
+    <input [(ngModel)]="consumer.mobile" type="mobile" name="num"  class="form-control">
 
     <label for="mail">Email: *</label>
-    <input type="email" name="email"  class="form-control" required>
+    <input [(ngModel)]="consumer.email" type="email" name="email"  class="form-control" required>
   </div>
 
   <div class="secondBox">
     <label for="address">Address: *</label>
-    <input type="text" name="address" class="form-control">
+    <input [(ngModel)]="consumer.address" type="text" name="address" class="form-control">
 
-    <label for="consumer_num">Consumer Number *</label>
-    <input type="text" name="consumer_num"  class="form-control">
+    <label for="password">Password *</label>
+    <input [(ngModel)]="consumer.pwd" type="password" name="password"  class="form-control">
 
     <label for="meter_num">Meter Number *</label>
-    <input type="text" name="meter_num"  class="form-control">
+    <input [(ngModel)]="consumer.meterNo" type="text" name="meter_num"  class="form-control">
     <br>
   </div>
 </div>
-    <button class="btn btn-info">Create New Customer</button>
+    <button class="btn btn-info" (click)="createConsumer()">Create New Customer</button>
   
 </form>

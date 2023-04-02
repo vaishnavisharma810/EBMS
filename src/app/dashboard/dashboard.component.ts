@@ -14,15 +14,18 @@ export class DashboardComponent {
   };
   constructor(private router: Router) { }
 
-  logout(){
-    this.router.navigate(['/BaseLogin']);
-  }
-
+  //Basic check variables
   isBills: boolean = false;
   isTransactionHistory: boolean = false;
   isUserProfile: boolean = false;
   isFaq: boolean = false;
   isEnergy: boolean = false
+
+  //Basic check functions
+
+  logout(){
+    this.router.navigate(['/BaseLogin']);
+  }
 
   dashboard() {
     this.isBills = false;

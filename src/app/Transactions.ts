@@ -1,3 +1,5 @@
+//Transactions
+
 export class Transactions{
         transaction_no!  : number;
         billNo! : number;

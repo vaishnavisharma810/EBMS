@@ -14,6 +14,7 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ConsumerMainDashboardComponent } from './consumer-main-dashboard/consumer-main-dashboard.component';
 import { AdminMainDashboardComponent } from './admin-main-dashboard/admin-main-dashboard.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path: "CreateNewConsumer", component: CreateNewUserComponent},
   {path: "BaseLogin", component: BaseComponent},
   {path: "ConsumerMainDashboard", component: ConsumerMainDashboardComponent},
-  {path: "AdminMainDashboard", component: AdminMainDashboardComponent}
+  {path: "AdminMainDashboard", component: AdminMainDashboardComponent},
+  {path: "AdminProfile", component: AdminProfileComponent}
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import { RestService } from '../services/rest.service';
 export class BillsComponent {
   bills: Bills[] = [];
   bill! : Bills;
+
   @Input()
   consumer! : Consumers;
 
@@ -23,8 +24,10 @@ export class BillsComponent {
   }
 
   isBillPay : boolean = false;
+
   billPay(bill : Bills){
     this.isBillPay = true;
+
     this.bill = bill;
     console.log(bill);
   }

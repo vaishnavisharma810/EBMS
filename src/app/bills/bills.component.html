@@ -1,33 +1,39 @@
-<div class="load-component" *ngIf="isBillPay == true">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<ng-container class="load-component"
+    *ngIf="isBillPay == true; then displayPayBills; else displayBillsTable;"></ng-container>
+<ng-template #displayPayBills>
     <app-pay-bill [bill]="bill" [consumer]="consumer"></app-pay-bill>
-</div>
+</ng-template>
 
-<br>
-<h2 style="font-weight: bolder; color: rgb(43, 167, 212);">My Bills</h2>
-<br>
-
-<div class="container">
-    <table class="table table-hover table-bordered text-center">
-        <thead class="text-light">
-            <th>Bill Number</th>
-            <th>Bill Date</th>
-            <th>Current Reading</th>
-            <th>Previous Reading</th>
-            <th>Amount</th>
-            <th>Pay</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let bill of bills">
-                <td>{{bill.bill_no}}</td>
-                <td>{{bill.previousBillDate}}</td>
-                <td>{{bill.presentReading}}</td>
-                <td>{{bill.previousReading}}</td>
-                <td>{{bill.amountToPay}}</td>
-                <td [ngSwitch]="paidBills.includes(bill.bill_no)">
-                    <span *ngSwitchCase="true">Bill Paid</span>
-                    <button *ngSwitchDefault type="button" class="btn btn-info btn-block" (click)="billPay(bill)">Pay Bill</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<ng-template #displayBillsTable>
+    <br>
+    <h2 style="font-weight: bolder; color: rgb(43, 167, 212);">My Bills</h2>
+    <br>
+    <div class="container">
+        <table class="table table-hover table-bordered text-center">
+            <thead class="text-light">
+                <th>Bill Number</th>
+                <th>Bill Date</th>
+                <th>Current Reading</th>
+                <th>Previous Reading</th>
+                <th>Amount</th>
+                <th>Pay</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bill of bills">
+                    <td>{{bill.bill_no}}</td>
+                    <td>{{bill.previousBillDate}}</td>
+                    <td>{{bill.presentReading}}</td>
+                    <td>{{bill.previousReading}}</td>
+                    <td>{{bill.amountToPay}}</td>
+                    <td [ngSwitch]="paidBills.includes(bill.bill_no)">
+                        <span *ngSwitchCase="true">Bill Paid</span>
+                        <button *ngSwitchDefault type="button" class="btn btn-info btn-block"
+                            (click)="billPay(bill)">Pay Bill</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>

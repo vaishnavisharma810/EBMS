@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <div class="top">
     <div class="user fa fa-user fa-xl" (click)="displayUserProfile()"></div>
@@ -21,6 +23,10 @@
 
     <div class="load-component" *ngIf="isBills == false && isTransactionHistory == false && isUserProfile == false && isFaq == false && isEnergy == false">
         <app-consumer-main-dashboard></app-consumer-main-dashboard>
+    </div>
+
+    <div class="load-component" *ngIf="isUserProfile == true">
+        <app-user-profile [consumer]="consumer"></app-user-profile>
     </div>
 
     <div class="load-component" *ngIf="isBills == true">

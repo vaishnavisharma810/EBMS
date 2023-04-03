@@ -25,9 +25,7 @@ constructor(private restService : RestService){}
 
 createConsumer(){
   console.log(JSON.stringify(this.consumer));
-  this.restService.createConsumer({
-    consumer : this.consumer
-  }).subscribe({
+  this.restService.createConsumer(this.consumer).subscribe({
     next: (data: string) => { console.log(data) },
     error: (err) => {alert(err.error)}
   })

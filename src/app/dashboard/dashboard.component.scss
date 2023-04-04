@@ -4,6 +4,7 @@
     background: #FCFCFC;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);display: flex;
     flex-direction: row;
+    position: fixed;
 
     button{
         margin-top: 6px;
@@ -48,7 +49,8 @@
         height: 91.7vh;
         width: 13rem;
         background: linear-gradient(173.87deg, #51C7F4 7.9%, rgba(6, 103, 179, 0) 141.41%);
-
+        position: fixed;
+        margin-top: 4%;
         .bottom {
             margin-top: 100%;
         }
@@ -67,10 +69,8 @@
     }
 
     .load-component {
-        background: rgba(217, 217, 217, 0.21);
-        border-radius: 20px;
-        height: 80vh;
-        width: 80vw;
-        margin: 30px;
+        width: 100%;
+        margin-left: 16.2%;
+        margin-top: 4%;
     }
 }

@@ -28,7 +28,7 @@ export class AdminLoginComponent {
   showErrorMsg: boolean = false;
   errorMsg: string = '';
 
-  checkSignIn() {
+  checkSignInAdmin() {
     this.errorMsg = '';
     this.showErrorMsg = false;
 
@@ -56,6 +56,49 @@ export class AdminLoginComponent {
 
         //if there is an error
 
+        error: (response : HttpResponse<String>) => {
+          if(response.status === 401) {
+            alert("WRONG PASSWORD!! TRY AGAIN");
+          } 
+          else if(response.status === 404) {
+            alert("EMAIL NOT FOUND");
+          } 
+          else {
+            alert("CAN'T RECOGNISE YOU!! ENTER YOUR DETAILS AGAIN!")
+          }
+        },
+      });
+    } else {
+      alert("INVALID EMAIL!!");
+    }
+  }
+
+  checkSignInConsumer() {
+    this.errorMsg = '';
+    this.showErrorMsg = false;
+
+    //Checking for empty fields
+    if (this.email.length == 0 || this.password.length == 0) {
+      this.showErrorMsg = true;
+    }
+
+    const result: ValidatorResult = FieldValidatorsService.isSignInFormValid(
+      this.email
+    );
+
+    //If email is validated
+    if (result.isValid) {
+      
+      console.log(this.email);
+      console.log(this.password);
+      this.restService.consumerLogin(this.email, this.password).subscribe({
+        next: (response : HttpResponse<Object>) => {
+          
+          localStorage.setItem('userDetails', JSON.stringify(response.body));
+
+          this.router.navigate(['/Dashboard']);
+        },
+        //If there  is an error
         error: (response : HttpResponse<String>) => {
           if(response.status === 401) {
             alert("WRONG PASSWORD!! TRY AGAIN");

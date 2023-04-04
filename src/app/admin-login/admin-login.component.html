@@ -1,21 +1,75 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="main">
-    <h4 style="font-weight: 700; color: rgb(43, 167, 212);">Hello Admin!</h4>
-    <div *ngIf="showErrorMsg == true" class="error" style="font-weight: bold;">
-        *Empty Field
+<body>
+
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
     </div>
-    <label for="email">Email</label><br>
-    <input [(ngModel)]="email" class="form-control" name="email" type="name" />
+    <form class="d-flex-center">
+      <div class="form-content">
+        <!-- 
+             CONSUMER FORM STARTS HERE
+            -->
+        
+          <div class="consumer-form">
+            <div class="title">Consumer</div>
+            <div class="input-groups">
+              <div class="input-box">
+                <i class="fa fa-envelope"></i>
+                <input type="email" class="input" name = "email" placeholder="Email" required >
+              </div>
+            </div>
 
-    <br>
+            <div class="input-groups">
+              <div class="input-box">
+                <i class="fa fa-lock"></i>
+                <input type="password" class="input" name="pwd" placeholder="Password" required>
+              </div>
+            </div>
 
-    <label for="password">Password</label><br>
-    <input [(ngModel)]="password" class="form-control" name="password" type="password" />
+            <div class="input-groups">
+              <div class="button input-box">
+                <button class="btn btn-info" type="submit" (click)="checkSignInConsumer()">Submit</button>
+              </div>
+            </div>
+            <div class="form-link consumer-text">
+              <label class="link consumer-link" for="flip">Admin Here</label>
+            </div>
+          </div>
+        
+        <!-- 
+             ADMIN FORM STARTS HERE
+            -->
+        
+          <div class="admin-form">
+            <div class="title">Admin</div>
 
-    <br><br>
+            <div class="input-groups">
+              <div class="input-box">
+                <i class="fa fa-envelope"></i>
+                <input type="text" class="input" placeholder="Email" name="email" required >
+              </div>
+            </div>
 
-    <button class="btn btn-info" (click)="checkSignIn()">
-        Sign In
-    </button>
-</div>
+            <div class="input-groups">
+              <div class="input-box">
+                <i class="fa fa-lock"></i>
+                <input type="password" class="input" placeholder="Password" name="pwd" required >
+              </div>
+            </div>
+       
+            <div class="input-groups">
+              <div class="button input-box">
+                <button class="btn btn-info" type="submit" (click)="checkSignInAdmin()">Submit</button>
+              </div>
+            </div> 
+            <div class="form-link admin-text">
+              <label class="link consumer-link" for="flip">Consumer Here</label>
+            </div>
+          </div>
+        
+        </div>
+    </form>
+  </div>
+</body>

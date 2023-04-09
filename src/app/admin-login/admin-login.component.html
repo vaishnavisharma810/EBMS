@@ -17,14 +17,14 @@
             <div class="input-groups">
               <div class="input-box">
                 <i class="fa fa-envelope"></i>
-                <input type="email" class="input" name = "email" placeholder="Email" required >
+                <input type="email" class="input" name = "email" placeholder="Email" required [(ngModel)]="consumerEmail">
               </div>
             </div>
 
             <div class="input-groups">
               <div class="input-box">
                 <i class="fa fa-lock"></i>
-                <input type="password" class="input" name="pwd" placeholder="Password" required>
+                <input type="password" class="input" name="pwd" placeholder="Password" required [(ngModel)]="consumerPassword">
               </div>
             </div>
 
@@ -48,14 +48,14 @@
             <div class="input-groups">
               <div class="input-box">
                 <i class="fa fa-envelope"></i>
-                <input type="text" class="input" placeholder="Email" name="email" required >
+                <input type="text" class="input" placeholder="Email" name="email" required [(ngModel)]="adminEmail">
               </div>
             </div>
 
             <div class="input-groups">
               <div class="input-box">
                 <i class="fa fa-lock"></i>
-                <input type="password" class="input" placeholder="Password" name="pwd" required >
+                <input type="password" class="input" placeholder="Password" name="pwd" required [(ngModel)]="adminPassword">
               </div>
             </div>
        

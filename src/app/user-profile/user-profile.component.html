@@ -17,11 +17,11 @@
                     <div class="col-md-12 py-1"><label class="labels">Mobile Number</label><input type="text"
                             class="form-control" value="{{userDetails.mobile}}"></div>
                     <div class="col-md-12 py-1"><label class="labels">Current Password</label><input type="password"
-                            class="form-control" value=""></div>
+                            class="form-control" value="" [(ngModel)]="currentPwd"></div>
                     <div class="col-md-12 py-1"><label class="labels">New Password</label><input type="password"
-                            class="form-control" value=""></div>
+                            class="form-control" value="" [(ngModel)]="newPwd"></div>
                     <div class="col-md-12 py-1"><label class="labels">Re-enter New Password</label><input
-                            type="password" class="form-control" value=""></div>
+                            type="password" class="form-control" value="" [(ngModel)]="confirmPwd"></div>
                 </div>
                 <div class="mt-3 text-center py-3"><button class="btn text-light profile-button" type="button" (click)="updateDetails()">Update
                     </button></div>

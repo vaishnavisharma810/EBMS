@@ -42,6 +42,11 @@ export class RestService {
     );
   } 
 
+  //update Password
+  updatePassword(currentPassword: string, newPassword: string): Observable<any> {
+    return this.http.post(`${environment.baseUrl}${environment.authPath}/consumer/register`, { currentPassword, newPassword });
+  }
+
   // get bills for consumer
   getBills(consumer_no : number) : Observable<any> {
     return this.http.get(this.billsUrl+"/get-bills/"+consumer_no);

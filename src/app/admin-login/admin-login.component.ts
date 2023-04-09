@@ -22,8 +22,11 @@ export class AdminLoginComponent {
   @Input()
   user! : User;
 
-  email: string = "";
-  password: string = "";
+  adminEmail: string = "";
+  adminPassword: string = "";
+
+  consumerEmail: string = "";
+  consumerPassword: string = "";
 
   showErrorMsg: boolean = false;
   errorMsg: string = '';
@@ -33,19 +36,19 @@ export class AdminLoginComponent {
     this.showErrorMsg = false;
 
     //Checking if email or password is not empty
-    if (this.email.length == 0 || this.password.length == 0) {
+    if (this.adminEmail.length == 0 || this.adminPassword.length == 0) {
       this.showErrorMsg = true;
     }
 
     const result: ValidatorResult = FieldValidatorsService.isSignInFormValid(
-      this.email
+      this.adminEmail
     );
 
     if (result.isValid) {
       
-      console.log(this.email);
-      console.log(this.password);
-      this.restService.consumerLogin(this.email, this.password).subscribe({
+      console.log(this.adminEmail);
+      console.log(this.adminPassword);
+      this.restService.consumerLogin(this.adminEmail, this.adminPassword).subscribe({
         next: (response : HttpResponse<Object>) => {
 
           //storing in local storage
@@ -78,20 +81,20 @@ export class AdminLoginComponent {
     this.showErrorMsg = false;
 
     //Checking for empty fields
-    if (this.email.length == 0 || this.password.length == 0) {
+    if (this.consumerEmail.length == 0 || this.consumerPassword.length == 0) {
       this.showErrorMsg = true;
     }
 
     const result: ValidatorResult = FieldValidatorsService.isSignInFormValid(
-      this.email
+      this.consumerEmail
     );
 
     //If email is validated
     if (result.isValid) {
       
-      console.log(this.email);
-      console.log(this.password);
-      this.restService.consumerLogin(this.email, this.password).subscribe({
+      console.log(this.consumerEmail);
+      console.log(this.consumerPassword);
+      this.restService.consumerLogin(this.consumerEmail, this.consumerPassword).subscribe({
         next: (response : HttpResponse<Object>) => {
           
           localStorage.setItem('userDetails', JSON.stringify(response.body));
